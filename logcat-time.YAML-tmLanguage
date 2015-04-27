@@ -1,0 +1,121 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+---
+name: logcat (-v time)
+scopeName: source.logcat.time
+fileTypes: []
+uuid: c2aa0892-cf12-40dd-8ea6-998aab90bc12
+firstLineMatch: -* beginning of /dev/log/.*
+firstLineMatch: ^([\d-]+)\s+([\d:.]+)\s+([VDIWEF])/(.*)\(\s+(\d+)\):\s+(.*)$
+
+# --------- beginning of /dev/log/system
+# 01-01 12:00:09.130 I/Vold    (  129): Vold 2.1 (the revenge) firing up
+# ...
+
+# this is the generic format of a log
+# match: '(?x)^
+#       ([\d-]+)\s+([\d:.]+)\s+
+#       ([VDIWEF])/(.*)
+#       \(\s+(\d+)\):\s+
+#       (.*)
+#       $'
+# captures:
+#   '1': date
+#   '2': time
+#   '3': log type
+#   '4': log tag
+#   '5': pid
+#   '6': log message
+# captures[4] and captures[6] should be of the same scope
+
+patterns:
+- include: '#verbose'
+- include: '#debug'
+- include: '#info'
+- include: '#warn'
+- include: '#error'
+
+repository:
+  verbose:
+    patterns:
+    - name: meta.logcat.line.verbose
+      match: '(?x)^
+            ([\d-]+)\s+([\d:.]+)\s+
+            ([V])/(.*)
+            \(\s+(\d+)\):\s+
+            (.*)
+            $'
+      captures:
+        '1': {name: string.logcat.timestamp.date}
+        '2': {name: string.logcat.timestamp.time}
+        '3': {name: comment.logcat.type}
+        '4': {name: entity.name.tag.logcat.tag}
+        '5': {name: constant.numeric.logcat.pid}
+        '6': {name: comment.logcat.msg}
+
+  debug:
+    patterns:
+    - name: meta.logcat.line.debug
+      match: '(?x)^
+            ([\d-]+)\s+([\d:.]+)\s+
+            ([D])/(.*)
+            \(\s+(\d+)\):\s+
+            (.*)
+            $'
+      captures:
+        '1': {name: string.logcat.timestamp.date}
+        '2': {name: string.logcat.timestamp.time}
+        '3': {name: entity.name.function.logcat.type}
+        '4': {name: entity.name.tag.logcat.tag}
+        '5': {name: constant.numeric.logcat.pid}
+        '6': {name: entity.name.function.logcat.msg}
+
+  info:
+    patterns:
+    - name: meta.logcat.line.info
+      match: '(?x)^
+            ([\d-]+)\s+([\d:.]+)\s+
+            ([I])/(.*)
+            \(\s+(\d+)\):\s+
+            (.*)
+            $'
+      captures:
+        '1': {name: string.logcat.timestamp.date}
+        '2': {name: string.logcat.timestamp.time}
+        '3': {name: entity.name.class.logcat}
+        '4': {name: entity.name.tag.logcat.tag}
+        '5': {name: constant.numeric.logcat.pid}
+        '6': {name: entity.name.class.logcat}
+
+  warn:
+    patterns:
+    - name: meta.logcat.line.warn
+      match: '(?x)^
+            ([\d-]+)\s+([\d:.]+)\s+
+            ([W])/(.*)
+            \(\s+(\d+)\):\s+
+            (.*)
+            $'
+      captures:
+        '1': {name: string.logcat.timestamp.date}
+        '2': {name: string.logcat.timestamp.time}
+        '3': {name: keyword.logcat.type}
+        '4': {name: entity.name.tag.logcat.tag}
+        '5': {name: constant.numeric.logcat.pid}
+        '6': {name: keyword.logcat.msg}
+
+  error:
+    patterns:
+    - name: meta.logcat.line.error
+      match: '(?x)^
+            ([\d-]+)\s+([\d:.]+)\s+
+            ([EF])/(.*)
+            \(\s+(\d+)\):\s+
+            (.*)
+            $'
+      captures:
+        '1': {name: string.logcat.timestamp.date}
+        '2': {name: string.logcat.timestamp.time}
+        '3': {name: invalid.illegal.logcat.type}
+        '4': {name: entity.name.tag.logcat.tag}
+        '5': {name: constant.numeric.logcat.pid}
+        '6': {name: invalid.illegal.logcat.msg}
