@@ -5,7 +5,7 @@
 	<key>fileTypes</key>
 	<array/>
 	<key>firstLineMatch</key>
-	<string>^([\d-]+)\s+([\d:.]+)\s+([VDIWEF])/(.*)\(\s+(\d+)\):\s+(.*)$</string>
+	<string>-* beginning of /dev/log/.*</string>
 	<key>name</key>
 	<string>logcat (-v time)</string>
 	<key>patterns</key>
@@ -72,7 +72,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>(?x)^ ([\d-]+)\s+([\d:.]+)\s+ ([D])/(.*) \(\s+(\d+)\):\s+ (.*) $</string>
+					<string>(?x)^ ([\d-]+)\s+([\d:.]+)\s+ ([D])/(.*) \(\s*(\d+)\):\s+ (.*) $</string>
 					<key>name</key>
 					<string>meta.logcat.line.debug</string>
 				</dict>
@@ -117,7 +117,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>(?x)^ ([\d-]+)\s+([\d:.]+)\s+ ([EF])/(.*) \(\s+(\d+)\):\s+ (.*) $</string>
+					<string>(?x)^ ([\d-]+)\s+([\d:.]+)\s+ ([EF])/(.*) \(\s*(\d+)\):\s+ (.*) $</string>
 					<key>name</key>
 					<string>meta.logcat.line.error</string>
 				</dict>
@@ -162,7 +162,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>(?x)^ ([\d-]+)\s+([\d:.]+)\s+ ([I])/(.*) \(\s+(\d+)\):\s+ (.*) $</string>
+					<string>(?x)^ ([\d-]+)\s+([\d:.]+)\s+ ([I])/(.*) \(\s*(\d+)\):\s+ (.*) $</string>
 					<key>name</key>
 					<string>meta.logcat.line.info</string>
 				</dict>
@@ -207,7 +207,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>(?x)^ ([\d-]+)\s+([\d:.]+)\s+ ([V])/(.*) \(\s+(\d+)\):\s+ (.*) $</string>
+					<string>(?x)^ ([\d-]+)\s+([\d:.]+)\s+ ([V])/(.*) \(\s*(\d+)\):\s+ (.*) $</string>
 					<key>name</key>
 					<string>meta.logcat.line.verbose</string>
 				</dict>
@@ -252,7 +252,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>(?x)^ ([\d-]+)\s+([\d:.]+)\s+ ([W])/(.*) \(\s+(\d+)\):\s+ (.*) $</string>
+					<string>(?x)^ ([\d-]+)\s+([\d:.]+)\s+ ([W])/(.*) \(\s*(\d+)\):\s+ (.*) $</string>
 					<key>name</key>
 					<string>meta.logcat.line.warn</string>
 				</dict>

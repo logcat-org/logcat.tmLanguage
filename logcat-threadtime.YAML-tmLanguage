@@ -5,7 +5,6 @@ scopeName: source.logcat.threadtime
 fileTypes: []
 uuid: fbfb3802-6282-490b-8dea-14b7dcbe7469
 firstLineMatch: -* beginning of /dev/log/.*
-firstLineMatch: ^([\d-]+)\s+([\d:.]+)\s+(\d+)\s+(\d+)\s+([VDIWEF])\s+(.*?):\s+(.*)$
 
 # --------- beginning of /dev/log/system
 # 01-01 20:00:04.640   130   130 I Vold    : Vold 2.1 (the revenge) firing up
@@ -17,10 +16,10 @@ firstLineMatch: ^([\d-]+)\s+([\d:.]+)\s+(\d+)\s+(\d+)\s+([VDIWEF])\s+(.*?):\s+(.
 # https://regex101.com/r/eC3lI7/1
 
 # match: '(?x)^
-#       ([\d-]+)\s+([\d:.]+)\s+
-#       (\d+)\s+(\d+)\s+
-#       ([VDIWEF])\s+(.*?):\s+
-#       (.*)
+#       ([\d-]+)\s+([\d:.]+)\s+   # date, time
+#       (\d+)\s+(\d+)\s+          # pid, tid
+#       ([VDIWEF])\s+(.*?):\s+    # log type, log tag
+#       (.*)                      # log message
 #       $'
 # captures:
 #   '1': date

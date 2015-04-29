@@ -5,7 +5,6 @@ scopeName: source.logcat.time
 fileTypes: []
 uuid: c2aa0892-cf12-40dd-8ea6-998aab90bc12
 firstLineMatch: -* beginning of /dev/log/.*
-firstLineMatch: ^([\d-]+)\s+([\d:.]+)\s+([VDIWEF])/(.*)\(\s+(\d+)\):\s+(.*)$
 
 # --------- beginning of /dev/log/system
 # 01-01 20:00:01.130 I/Vold    (  129): Vold 2.1 (the revenge) firing up
@@ -17,10 +16,10 @@ firstLineMatch: ^([\d-]+)\s+([\d:.]+)\s+([VDIWEF])/(.*)\(\s+(\d+)\):\s+(.*)$
 # https://regex101.com/r/hR8qY8/1
 
 # match: '(?x)^
-#       ([\d-]+)\s+([\d:.]+)\s+
-#       ([VDIWEF])/(.*)
-#       \(\s+(\d+)\):\s+
-#       (.*)
+#       ([\d-]+)\s+([\d:.]+)\s+   # date, time
+#       ([VDIWEF])/(.*)           # log type, log tag
+#       \(\s*(\d+)\):\s+          # pid
+#       (.*)                      # log message
 #       $'
 # captures:
 #   '1': date
@@ -45,7 +44,7 @@ repository:
       match: '(?x)^
             ([\d-]+)\s+([\d:.]+)\s+
             ([V])/(.*)
-            \(\s+(\d+)\):\s+
+            \(\s*(\d+)\):\s+
             (.*)
             $'
       captures:
@@ -62,7 +61,7 @@ repository:
       match: '(?x)^
             ([\d-]+)\s+([\d:.]+)\s+
             ([D])/(.*)
-            \(\s+(\d+)\):\s+
+            \(\s*(\d+)\):\s+
             (.*)
             $'
       captures:
@@ -79,7 +78,7 @@ repository:
       match: '(?x)^
             ([\d-]+)\s+([\d:.]+)\s+
             ([I])/(.*)
-            \(\s+(\d+)\):\s+
+            \(\s*(\d+)\):\s+
             (.*)
             $'
       captures:
@@ -96,7 +95,7 @@ repository:
       match: '(?x)^
             ([\d-]+)\s+([\d:.]+)\s+
             ([W])/(.*)
-            \(\s+(\d+)\):\s+
+            \(\s*(\d+)\):\s+
             (.*)
             $'
       captures:
@@ -113,7 +112,7 @@ repository:
       match: '(?x)^
             ([\d-]+)\s+([\d:.]+)\s+
             ([EF])/(.*)
-            \(\s+(\d+)\):\s+
+            \(\s*(\d+)\):\s+
             (.*)
             $'
       captures:
