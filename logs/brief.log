@@ -1,0 +1,21 @@
+--------- beginning of /dev/log/system
+I/Vold    ( 2311): Vold 2.1 (the revenge) firing up
+D/Vold    ( 2311): Volume loop state changing -1 (Initializing) -> 0 (No-Media)
+W/Vold    ( 2311): addMdmDev don't find a match usb device(1d6b_2) in isKnownMdmDev
+W/Vold    ( 2311): addMdmDev don't find a match usb device(1d57_ad03) in isKnownMdmDev
+I/SystemServer( 3424): Connectivity Service
+D/ConnectivityService( 3424): ConnectivityService starting up
+V/ConnectivityService( 3424): mNetworkPreference9
+D/ConnectivityService( 3424): *******netType=wifi,1,1,1,-1,true
+I/ConnectivityService( 3424): NetworkAttributes naString: wifi,1,1,1,-1,true  type: 1
+D/ConnectivityService( 3424): *******netType=mobile,0,0,0,-1,true
+I/ConnectivityService( 3424): NetworkAttributes naString: mobile,0,0,0,-1,true  type: 0
+D/ConnectivityService( 3424): *******netType=mobile_bluetooth,7,7,1,-1,true
+I/ConnectivityService( 3424): NetworkAttributes naString: mobile_bluetooth,7,7,1,-1,true  type: 7
+D/ConnectivityService( 3424): *******netType=wifi_p2p,13,1,0,-1,true
+I/ConnectivityService( 3424): NetworkAttributes naString: wifi_p2p,13,1,0,-1,true  type: 13
+D/ConnectivityService( 3424): *******netType=ethernet,9,9,1,-1,true
+I/ConnectivityService( 3424): NetworkAttributes naString: ethernet,9,9,1,-1,true  type: 9
+E/ConnectivityService( 3424): Ignoring protectedNetwork 10
+E/ConnectivityService( 3424): Ignoring protectedNetwork 11
+E/ConnectivityService( 3424): Ignoring protectedNetwork 12

@@ -6,14 +6,8 @@ fileTypes: []
 uuid: c2aa0892-cf12-40dd-8ea6-998aab90bc12
 firstLineMatch: -* beginning of /dev/log/.*
 
-# --------- beginning of /dev/log/system
-# 01-01 20:00:01.130 I/Vold    (  129): Vold 2.1 (the revenge) firing up
-# 01-01 20:00:04.630 D/Vold    (  130): device path: /sys/class/usb_device/usbdev1.1/device/1-1
-# 01-01 20:00:04.630 D/Vold    (  130): Vendor path: /sys/class/usb_device/usbdev1.1/device/1-1/idVendor
-# ...
-
 # this is the generic format of a log
-# https://regex101.com/r/hR8qY8/1
+# https://regex101.com/r/hR8qY8/
 
 # match: '(?x)^
 #       ([\d-]+)\s+([\d:.]+)\s+   # date, time

@@ -1,0 +1,60 @@
+--------- beginning of /dev/log/system
+[ 01-01 08:00:10.559  2311: 2311 I/Vold     ]
+Vold 2.1 (the revenge) firing up
+
+[ 01-01 08:00:10.589  2311: 2311 D/Vold     ]
+Volume loop state changing -1 (Initializing) -> 0 (No-Media)
+
+[ 01-01 08:00:10.919  2311: 2349 W/Vold     ]
+addMdmDev don't find a match usb device(1d6b_2) in isKnownMdmDev
+
+[ 01-01 08:00:10.919  2311: 2349 W/Vold     ]
+addMdmDev don't find a match usb device(1d57_ad03) in isKnownMdmDev
+
+[ 01-02 08:00:10.620  3424: 3436 I/SystemServer ]
+Connectivity Service
+
+[ 01-02 08:00:10.620  3424: 3436 D/ConnectivityService ]
+ConnectivityService starting up
+
+[ 01-02 08:00:10.620  3424: 3436 V/ConnectivityService ]
+mNetworkPreference9
+
+[ 01-02 08:00:10.620  3424: 3436 D/ConnectivityService ]
+*******netType=wifi,1,1,1,-1,true
+
+[ 01-02 08:00:10.620  3424: 3436 I/ConnectivityService ]
+NetworkAttributes naString: wifi,1,1,1,-1,true  type: 1
+
+[ 01-02 08:00:10.620  3424: 3436 D/ConnectivityService ]
+*******netType=mobile,0,0,0,-1,true
+
+[ 01-02 08:00:10.620  3424: 3436 I/ConnectivityService ]
+NetworkAttributes naString: mobile,0,0,0,-1,true  type: 0
+
+[ 01-02 08:00:10.620  3424: 3436 D/ConnectivityService ]
+*******netType=mobile_bluetooth,7,7,1,-1,true
+
+[ 01-02 08:00:10.620  3424: 3436 I/ConnectivityService ]
+NetworkAttributes naString: mobile_bluetooth,7,7,1,-1,true  type: 7
+
+[ 01-02 08:00:10.620  3424: 3436 D/ConnectivityService ]
+*******netType=wifi_p2p,13,1,0,-1,true
+
+[ 01-02 08:00:10.620  3424: 3436 I/ConnectivityService ]
+NetworkAttributes naString: wifi_p2p,13,1,0,-1,true  type: 13
+
+[ 01-02 08:00:10.620  3424: 3436 D/ConnectivityService ]
+*******netType=ethernet,9,9,1,-1,true
+
+[ 01-02 08:00:10.620  3424: 3436 I/ConnectivityService ]
+NetworkAttributes naString: ethernet,9,9,1,-1,true  type: 9
+
+[ 01-02 08:00:10.620  3424: 3436 E/ConnectivityService ]
+Ignoring protectedNetwork 10
+
+[ 01-02 08:00:10.620  3424: 3436 E/ConnectivityService ]
+Ignoring protectedNetwork 11
+
+[ 01-02 08:00:10.620  3424: 3436 E/ConnectivityService ]
+Ignoring protectedNetwork 12

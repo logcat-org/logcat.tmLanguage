@@ -1,0 +1,21 @@
+--------- beginning of /dev/log/system
+01-01 08:00:10.559 I/Vold    ( 2311): Vold 2.1 (the revenge) firing up
+01-01 08:00:10.589 D/Vold    ( 2311): Volume loop state changing -1 (Initializing) -> 0 (No-Media)
+01-01 08:00:10.919 W/Vold    ( 2311): addMdmDev don't find a match usb device(1d6b_2) in isKnownMdmDev
+01-01 08:00:10.919 W/Vold    ( 2311): addMdmDev don't find a match usb device(1d57_ad03) in isKnownMdmDev
+01-02 08:00:10.620 I/SystemServer( 3424): Connectivity Service
+01-02 08:00:10.620 D/ConnectivityService( 3424): ConnectivityService starting up
+01-02 08:00:10.620 V/ConnectivityService( 3424): mNetworkPreference9
+01-02 08:00:10.620 D/ConnectivityService( 3424): *******netType=wifi,1,1,1,-1,true
+01-02 08:00:10.620 I/ConnectivityService( 3424): NetworkAttributes naString: wifi,1,1,1,-1,true  type: 1
+01-02 08:00:10.620 D/ConnectivityService( 3424): *******netType=mobile,0,0,0,-1,true
+01-02 08:00:10.620 I/ConnectivityService( 3424): NetworkAttributes naString: mobile,0,0,0,-1,true  type: 0
+01-02 08:00:10.620 D/ConnectivityService( 3424): *******netType=mobile_bluetooth,7,7,1,-1,true
+01-02 08:00:10.620 I/ConnectivityService( 3424): NetworkAttributes naString: mobile_bluetooth,7,7,1,-1,true  type: 7
+01-02 08:00:10.620 D/ConnectivityService( 3424): *******netType=wifi_p2p,13,1,0,-1,true
+01-02 08:00:10.620 I/ConnectivityService( 3424): NetworkAttributes naString: wifi_p2p,13,1,0,-1,true  type: 13
+01-02 08:00:10.620 D/ConnectivityService( 3424): *******netType=ethernet,9,9,1,-1,true
+01-02 08:00:10.620 I/ConnectivityService( 3424): NetworkAttributes naString: ethernet,9,9,1,-1,true  type: 9
+01-02 08:00:10.620 E/ConnectivityService( 3424): Ignoring protectedNetwork 10
+01-02 08:00:10.620 E/ConnectivityService( 3424): Ignoring protectedNetwork 11
+01-02 08:00:10.620 E/ConnectivityService( 3424): Ignoring protectedNetwork 12
