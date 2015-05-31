@@ -10,19 +10,21 @@ firstLineMatch: -* beginning of /dev/log/.*
 # https://regex101.com/r/hR8qY8/
 
 # match: '(?x)^
+#       (?:\s*(\d+:)\s*)?         # (optional) line number
 #       ([\d-]+)\s+([\d:.]+)\s+   # date, time
 #       ([VDIWEF])/(.*)           # log type, log tag
 #       \(\s*(\d+)\):\s+          # pid
 #       (.*)                      # log message
 #       $'
 # captures:
-#   '1': date
-#   '2': time
-#   '3': log type
-#   '4': log tag
-#   '5': pid
-#   '6': log message
-# captures[4] and captures[6] should be of the same scope
+#   '1': line number
+#   '2': date
+#   '3': time
+#   '4': log type
+#   '5': log tag
+#   '6': pid
+#   '7': log message
+# captures[5] and captures[7] should be of the same scope
 
 patterns:
 - include: '#verbose'
@@ -36,83 +38,93 @@ repository:
     patterns:
     - name: meta.logcat.line.verbose
       match: '(?x)^
+            (?:\s*(\d+:)\s*)?
             ([\d-]+)\s+([\d:.]+)\s+
             ([V])/(.*)
             \(\s*(\d+)\):\s+
             (.*)
             $'
       captures:
-        '1': {name: string.logcat.timestamp.date}
-        '2': {name: string.logcat.timestamp.time}
-        '3': {name: comment.logcat.type}
-        '4': {name: entity.name.tag.logcat.tag}
-        '5': {name: constant.numeric.logcat.pid}
-        '6': {name: comment.logcat.msg}
+        '1': {name: constant.numeric.logcat.line}
+        '2': {name: string.logcat.timestamp.date}
+        '3': {name: string.logcat.timestamp.time}
+        '4': {name: comment.logcat.type}
+        '5': {name: entity.name.tag.logcat.tag}
+        '6': {name: constant.numeric.logcat.pid}
+        '7': {name: comment.logcat.msg}
 
   debug:
     patterns:
     - name: meta.logcat.line.debug
       match: '(?x)^
+            (?:\s*(\d+:)\s*)?
             ([\d-]+)\s+([\d:.]+)\s+
             ([D])/(.*)
             \(\s*(\d+)\):\s+
             (.*)
             $'
       captures:
-        '1': {name: string.logcat.timestamp.date}
-        '2': {name: string.logcat.timestamp.time}
-        '3': {name: entity.name.function.logcat.type}
-        '4': {name: entity.name.tag.logcat.tag}
-        '5': {name: constant.numeric.logcat.pid}
-        '6': {name: entity.name.function.logcat.msg}
+        '1': {name: constant.numeric.logcat.line}
+        '2': {name: string.logcat.timestamp.date}
+        '3': {name: string.logcat.timestamp.time}
+        '4': {name: entity.name.function.logcat.type}
+        '5': {name: entity.name.tag.logcat.tag}
+        '6': {name: constant.numeric.logcat.pid}
+        '7': {name: entity.name.function.logcat.msg}
 
   info:
     patterns:
     - name: meta.logcat.line.info
       match: '(?x)^
+            (?:\s*(\d+:)\s*)?
             ([\d-]+)\s+([\d:.]+)\s+
             ([I])/(.*)
             \(\s*(\d+)\):\s+
             (.*)
             $'
       captures:
-        '1': {name: string.logcat.timestamp.date}
-        '2': {name: string.logcat.timestamp.time}
-        '3': {name: entity.name.class.logcat}
-        '4': {name: entity.name.tag.logcat.tag}
-        '5': {name: constant.numeric.logcat.pid}
-        '6': {name: entity.name.class.logcat}
+        '1': {name: constant.numeric.logcat.line}
+        '2': {name: string.logcat.timestamp.date}
+        '3': {name: string.logcat.timestamp.time}
+        '4': {name: entity.name.class.logcat}
+        '5': {name: entity.name.tag.logcat.tag}
+        '6': {name: constant.numeric.logcat.pid}
+        '7': {name: entity.name.class.logcat}
 
   warn:
     patterns:
     - name: meta.logcat.line.warn
       match: '(?x)^
+            (?:\s*(\d+:)\s*)?
             ([\d-]+)\s+([\d:.]+)\s+
             ([W])/(.*)
             \(\s*(\d+)\):\s+
             (.*)
             $'
       captures:
-        '1': {name: string.logcat.timestamp.date}
-        '2': {name: string.logcat.timestamp.time}
-        '3': {name: keyword.logcat.type}
-        '4': {name: entity.name.tag.logcat.tag}
-        '5': {name: constant.numeric.logcat.pid}
-        '6': {name: keyword.logcat.msg}
+        '1': {name: constant.numeric.logcat.line}
+        '2': {name: string.logcat.timestamp.date}
+        '3': {name: string.logcat.timestamp.time}
+        '4': {name: keyword.logcat.type}
+        '5': {name: entity.name.tag.logcat.tag}
+        '6': {name: constant.numeric.logcat.pid}
+        '7': {name: keyword.logcat.msg}
 
   error:
     patterns:
     - name: meta.logcat.line.error
       match: '(?x)^
+            (?:\s*(\d+:)\s*)?
             ([\d-]+)\s+([\d:.]+)\s+
             ([EF])/(.*)
             \(\s*(\d+)\):\s+
             (.*)
             $'
       captures:
-        '1': {name: string.logcat.timestamp.date}
-        '2': {name: string.logcat.timestamp.time}
-        '3': {name: invalid.illegal.logcat.type}
-        '4': {name: entity.name.tag.logcat.tag}
-        '5': {name: constant.numeric.logcat.pid}
-        '6': {name: invalid.illegal.logcat.msg}
+        '1': {name: constant.numeric.logcat.line}
+        '2': {name: string.logcat.timestamp.date}
+        '3': {name: string.logcat.timestamp.time}
+        '4': {name: invalid.illegal.logcat.type}
+        '5': {name: entity.name.tag.logcat.tag}
+        '6': {name: constant.numeric.logcat.pid}
+        '7': {name: invalid.illegal.logcat.msg}

@@ -10,16 +10,18 @@ firstLineMatch: -* beginning of /dev/log/.*
 # https://regex101.com/r/cX0eW3
 
 # match: '(?x)^
+#       (?:\s*(\d+:)\s*)?         # (optional) line number
 #       ([VDIWEF])/(.*)           # log type, log tag
 #       \(\s*(\d+)\):\s+          # pid
 #       (.*)                      # log message
 #       $'
 # captures:
-#   '1': log type
-#   '2': log tag
-#   '3': pid
-#   '4': log message
-# captures[1] and captures[4] should be of the same scope
+#   '1': line number
+#   '2': log type
+#   '3': log tag
+#   '4': pid
+#   '5': log message
+# captures[2] and captures[5] should be of the same scope
 
 patterns:
 - include: '#verbose'
@@ -33,68 +35,78 @@ repository:
     patterns:
     - name: meta.logcat.line.verbose
       match: '(?x)^
+            (?:\s*(\d+:)\s*)?
             ([V])/(.*)
             \(\s*(\d+)\):\s+
             (.*)
             $'
       captures:
-        '1': {name: comment.logcat.type}
-        '2': {name: entity.name.tag.logcat.tag}
-        '3': {name: constant.numeric.logcat.pid}
-        '4': {name: comment.logcat.msg}
+        '1': {name: constant.numeric.logcat.line}
+        '2': {name: comment.logcat.type}
+        '3': {name: entity.name.tag.logcat.tag}
+        '4': {name: constant.numeric.logcat.pid}
+        '5': {name: comment.logcat.msg}
 
   debug:
     patterns:
     - name: meta.logcat.line.debug
       match: '(?x)^
+            (?:\s*(\d+:)\s*)?
             ([D])/(.*)
             \(\s*(\d+)\):\s+
             (.*)
             $'
       captures:
-        '1': {name: entity.name.function.logcat.type}
-        '2': {name: entity.name.tag.logcat.tag}
-        '3': {name: constant.numeric.logcat.pid}
-        '4': {name: entity.name.function.logcat.msg}
+        '1': {name: constant.numeric.logcat.line}
+        '2': {name: entity.name.function.logcat.type}
+        '3': {name: entity.name.tag.logcat.tag}
+        '4': {name: constant.numeric.logcat.pid}
+        '5': {name: entity.name.function.logcat.msg}
 
   info:
     patterns:
     - name: meta.logcat.line.info
       match: '(?x)^
+            (?:\s*(\d+:)\s*)?
             ([I])/(.*)
             \(\s*(\d+)\):\s+
             (.*)
             $'
       captures:
-        '1': {name: entity.name.class.logcat}
-        '2': {name: entity.name.tag.logcat.tag}
-        '3': {name: constant.numeric.logcat.pid}
-        '4': {name: entity.name.class.logcat}
+        '1': {name: constant.numeric.logcat.line}
+        '2': {name: entity.name.class.logcat}
+        '3': {name: entity.name.tag.logcat.tag}
+        '4': {name: constant.numeric.logcat.pid}
+        '5': {name: entity.name.class.logcat}
 
   warn:
     patterns:
     - name: meta.logcat.line.warn
       match: '(?x)^
+            (?:\s*(\d+:)\s*)?
             ([W])/(.*)
             \(\s*(\d+)\):\s+
             (.*)
             $'
       captures:
-        '1': {name: keyword.logcat.type}
-        '2': {name: entity.name.tag.logcat.tag}
-        '3': {name: constant.numeric.logcat.pid}
-        '4': {name: keyword.logcat.msg}
+        '1': {name: constant.numeric.logcat.line}
+        '2': {name: keyword.logcat.type}
+        '3': {name: entity.name.tag.logcat.tag}
+        '4': {name: constant.numeric.logcat.pid}
+        '5': {name: keyword.logcat.msg}
 
   error:
     patterns:
     - name: meta.logcat.line.error
       match: '(?x)^
+            (?:\s*(\d+:)\s*)?
             ([EF])/(.*)
             \(\s*(\d+)\):\s+
             (.*)
             $'
       captures:
-        '1': {name: invalid.illegal.logcat.type}
-        '2': {name: entity.name.tag.logcat.tag}
-        '3': {name: constant.numeric.logcat.pid}
-        '4': {name: invalid.illegal.logcat.msg}
+        '1': {name: constant.numeric.logcat.line}
+        '2': {name: invalid.illegal.logcat.type}
+        '3': {name: entity.name.tag.logcat.tag}
+        '4': {name: constant.numeric.logcat.pid}
+        '5': {name: invalid.illegal.logcat.msg}

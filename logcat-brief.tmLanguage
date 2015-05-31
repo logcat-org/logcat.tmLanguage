@@ -43,26 +43,31 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>entity.name.function.logcat.type</string>
+							<string>constant.numeric.logcat.line</string>
 						</dict>
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>entity.name.tag.logcat.tag</string>
+							<string>entity.name.function.logcat.type</string>
 						</dict>
 						<key>3</key>
 						<dict>
 							<key>name</key>
-							<string>constant.numeric.logcat.pid</string>
+							<string>entity.name.tag.logcat.tag</string>
 						</dict>
 						<key>4</key>
+						<dict>
+							<key>name</key>
+							<string>constant.numeric.logcat.pid</string>
+						</dict>
+						<key>5</key>
 						<dict>
 							<key>name</key>
 							<string>entity.name.function.logcat.msg</string>
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>(?x)^ ([D])/(.*) \(\s*(\d+)\):\s+ (.*) $</string>
+					<string>(?x)^ (?:\s*(\d+:)\s*)? ([D])/(.*) \(\s*(\d+)\):\s+ (.*) $</string>
 					<key>name</key>
 					<string>meta.logcat.line.debug</string>
 				</dict>
@@ -78,26 +83,31 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>invalid.illegal.logcat.type</string>
+							<string>constant.numeric.logcat.line</string>
 						</dict>
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>entity.name.tag.logcat.tag</string>
+							<string>invalid.illegal.logcat.type</string>
 						</dict>
 						<key>3</key>
 						<dict>
 							<key>name</key>
-							<string>constant.numeric.logcat.pid</string>
+							<string>entity.name.tag.logcat.tag</string>
 						</dict>
 						<key>4</key>
+						<dict>
+							<key>name</key>
+							<string>constant.numeric.logcat.pid</string>
+						</dict>
+						<key>5</key>
 						<dict>
 							<key>name</key>
 							<string>invalid.illegal.logcat.msg</string>
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>(?x)^ ([EF])/(.*) \(\s*(\d+)\):\s+ (.*) $</string>
+					<string>(?x)^ (?:\s*(\d+:)\s*)? ([EF])/(.*) \(\s*(\d+)\):\s+ (.*) $</string>
 					<key>name</key>
 					<string>meta.logcat.line.error</string>
 				</dict>
@@ -113,26 +123,31 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>entity.name.class.logcat</string>
+							<string>constant.numeric.logcat.line</string>
 						</dict>
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>entity.name.tag.logcat.tag</string>
+							<string>entity.name.class.logcat</string>
 						</dict>
 						<key>3</key>
 						<dict>
 							<key>name</key>
-							<string>constant.numeric.logcat.pid</string>
+							<string>entity.name.tag.logcat.tag</string>
 						</dict>
 						<key>4</key>
+						<dict>
+							<key>name</key>
+							<string>constant.numeric.logcat.pid</string>
+						</dict>
+						<key>5</key>
 						<dict>
 							<key>name</key>
 							<string>entity.name.class.logcat</string>
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>(?x)^ ([I])/(.*) \(\s*(\d+)\):\s+ (.*) $</string>
+					<string>(?x)^ (?:\s*(\d+:)\s*)? ([I])/(.*) \(\s*(\d+)\):\s+ (.*) $</string>
 					<key>name</key>
 					<string>meta.logcat.line.info</string>
 				</dict>
@@ -148,26 +163,31 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>comment.logcat.type</string>
+							<string>constant.numeric.logcat.line</string>
 						</dict>
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>entity.name.tag.logcat.tag</string>
+							<string>comment.logcat.type</string>
 						</dict>
 						<key>3</key>
 						<dict>
 							<key>name</key>
-							<string>constant.numeric.logcat.pid</string>
+							<string>entity.name.tag.logcat.tag</string>
 						</dict>
 						<key>4</key>
+						<dict>
+							<key>name</key>
+							<string>constant.numeric.logcat.pid</string>
+						</dict>
+						<key>5</key>
 						<dict>
 							<key>name</key>
 							<string>comment.logcat.msg</string>
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>(?x)^ ([V])/(.*) \(\s*(\d+)\):\s+ (.*) $</string>
+					<string>(?x)^ (?:\s*(\d+:)\s*)? ([V])/(.*) \(\s*(\d+)\):\s+ (.*) $</string>
 					<key>name</key>
 					<string>meta.logcat.line.verbose</string>
 				</dict>
@@ -183,26 +203,31 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>keyword.logcat.type</string>
+							<string>constant.numeric.logcat.line</string>
 						</dict>
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>entity.name.tag.logcat.tag</string>
+							<string>keyword.logcat.type</string>
 						</dict>
 						<key>3</key>
 						<dict>
 							<key>name</key>
-							<string>constant.numeric.logcat.pid</string>
+							<string>entity.name.tag.logcat.tag</string>
 						</dict>
 						<key>4</key>
+						<dict>
+							<key>name</key>
+							<string>constant.numeric.logcat.pid</string>
+						</dict>
+						<key>5</key>
 						<dict>
 							<key>name</key>
 							<string>keyword.logcat.msg</string>
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>(?x)^ ([W])/(.*) \(\s*(\d+)\):\s+ (.*) $</string>
+					<string>(?x)^ (?:\s*(\d+:)\s*)? ([W])/(.*) \(\s*(\d+)\):\s+ (.*) $</string>
 					<key>name</key>
 					<string>meta.logcat.line.warn</string>
 				</dict>
