@@ -11,14 +11,14 @@ firstLineMatch: -* beginning of /dev/log/.*
 
 # match: '(?x)^
 #       (?:\s*(\d+:)\s*)?         # (optional) line number
-#       ([VDIWEF])/(.*)           # log type, log tag
+#       ([VDIWEF])/(.*?)          # log type, log tag
 #       \(\s*(\d+)\):\s+          # pid
 #       (.*)                      # log message
 #       $'
 # captures:
 #   '1': line number
 #   '2': log type
-#   '3': log tag
+#   '3': log tag (note it is non greedy)
 #   '4': pid
 #   '5': log message
 # captures[2] and captures[5] should be of the same scope
