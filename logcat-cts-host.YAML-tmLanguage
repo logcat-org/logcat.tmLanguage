@@ -1,0 +1,135 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+---
+name: logcat (cts host)
+scopeName: source.logcat.cts-host
+fileTypes: []
+uuid: fbfb3802-6282-490b-8dea-14b7dcbe7469
+
+# this is the generic format of a log
+# https://regex101.com/r/zU1kE3/
+
+# match: '(?x)^
+#       (?:\s*(\d+:)\s*)?         # (optional) line number
+#       ([\d-]+)\s+([\d:.]+)\s+   # date, time
+#       ([VDIWEF])/(.*?):\s+      # log type, log tag
+#       (.*)                      # log message
+#       $'
+# captures:
+#   '1': line number
+#   '2': date
+#   '3': time
+#   '4': log type
+#   '5': log tag (note it is non greedy)
+#   '6': log message
+# captures[4] and captures[6] should be of the same scope
+
+# CTS host log only uses I and D
+# have to write specific rules to highlight FAIL, test start and complete line
+
+# 08-05 11:23:15 I/6710407: android.permission.cts.FileSystemPermissionTest#testAllFilesInSysAreNotWritable FAIL
+# junit.framework.AssertionFailedError: Found writable: [/sys/devices/virtual/gpio/gpio192/direction, /sys/devices/virtual/gpio/gpio184/direction, /sys/devices/virtual/gpio/gpio189/direction, /sys/devices/virtual/gpio/gpio188/direction, /sys/devices/virtual/gpio/gpio183/value, /sys/devices/virtual/gpio/gpio184/value, /sys/devices/virtual/gpio/gpio188/value, /sys/devices/virtual/gpio/gpio183/direction, /sys/devices/virtual/gpio/gpio189/value, /sys/devices/virtual/gpio/gpio192/value]
+# at android.permission.cts.FileSystemPermissionTest.testAllFilesInSysAreNotWritable(FileSystemPermissionTest.java:540)
+# at java.lang.reflect.Method.invokeNative(Native Method)
+# at android.test.AndroidTestRunner.runTest(AndroidTestRunner.java:190)
+# at android.test.AndroidTestRunner.runTest(AndroidTestRunner.java:175)
+# at android.test.InstrumentationTestRunner.onStart(InstrumentationTestRunner.java:555)
+# at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:1661)
+
+# 08-05 11:25:21 I/6710407: -----------------------------------------
+# 08-05 11:25:21 I/6710407: Test package android.uiautomator started
+# 08-05 11:25:21 I/6710407: -----------------------------------------
+
+# 08-05 11:25:21 I/6710407: android.uiautomator package complete: Passed 0, Failed 0, Not Executed 34
+
+patterns:
+- include: '#verbose'
+- include: '#debug'
+- include: '#info'
+- include: '#warn'
+- include: '#error'
+
+repository:
+  verbose:
+    patterns:
+    - name: meta.logcat.line.verbose
+      match: '(?x)^
+            (?:\s*(\d+:)\s*)?
+            ([\d-]+)\s+([\d:.]+)\s+
+            ([V])/(.*?):\s+
+            (.*)
+            $'
+      captures:
+        '1': {name: constant.numeric.logcat.line}
+        '2': {name: string.logcat.timestamp.date}
+        '3': {name: string.logcat.timestamp.time}
+        '4': {name: comment.logcat.type}
+        '5': {name: entity.name.tag.logcat.tag}
+        '6': {name: comment.logcat.msg}
+
+  debug:
+    patterns:
+    - name: meta.logcat.line.debug
+      match: '(?x)^
+            (?:\s*(\d+:)\s*)?
+            ([\d-]+)\s+([\d:.]+)\s+
+            ([D])/(.*?):\s+
+            (.*)
+            $'
+      captures:
+        '1': {name: constant.numeric.logcat.line}
+        '2': {name: string.logcat.timestamp.date}
+        '3': {name: string.logcat.timestamp.time}
+        '4': {name: entity.name.function.logcat.type}
+        '5': {name: entity.name.tag.logcat.tag}
+        '6': {name: entity.name.function.logcat.msg}
+
+  info:
+    patterns:
+    - name: meta.logcat.line.info
+      match: '(?x)^
+            (?:\s*(\d+:)\s*)?
+            ([\d-]+)\s+([\d:.]+)\s+
+            ([I])/(.*?):\s+
+            (.*)
+            $'
+      captures:
+        '1': {name: constant.numeric.logcat.line}
+        '2': {name: string.logcat.timestamp.date}
+        '3': {name: string.logcat.timestamp.time}
+        '4': {name: entity.name.class.logcat.type}
+        '5': {name: entity.name.tag.logcat.tag}
+        '6': {name: entity.name.class.logcat.msg}
+
+  warn:
+    patterns:
+    - name: meta.logcat.line.warn
+      match: '(?x)^
+            (?:\s*(\d+:)\s*)?
+            ([\d-]+)\s+([\d:.]+)\s+
+            ([W])/(.*?):\s+
+            (.*)
+            $'
+      captures:
+        '1': {name: constant.numeric.logcat.line}
+        '2': {name: string.logcat.timestamp.date}
+        '3': {name: string.logcat.timestamp.time}
+        '4': {name: keyword.logcat.type}
+        '5': {name: entity.name.tag.logcat.tag}
+        '6': {name: keyword.logcat.msg}
+
+  error:
+    patterns:
+    - name: meta.logcat.line.error
+      match: '(?x)^
+            (?:\s*(\d+:)\s*)?
+            ([\d-]+)\s+([\d:.]+)\s+
+            ([EF])/(.*?):\s+
+            (.*)
+            $'
+      captures:
+        '1': {name: constant.numeric.logcat.line}
+        '2': {name: string.logcat.timestamp.date}
+        '3': {name: string.logcat.timestamp.time}
+        '4': {name: invalid.illegal.logcat.type}
+        '5': {name: entity.name.tag.logcat.tag}
+        '5': {name: invalid.illegal.logcat.msg}
