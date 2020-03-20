@@ -82,7 +82,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>(?x)^ (?:\s*(\d+:)\s*)? ([\d-]+)\s+([\d:.]+)\s+ (\d+)\s+(\d+)\s+ ([D])\s+(.*?):\s+ (.*) $</string>
+					<string>(?x)^ (?:\s*(\d+:)\s*)? ([\d-]+)\s+([\d:.]+)\s+ (\d+)[-\s]+(\d+)\S*\s+ ([D])[/\s]+(.*?):\s+ (.*) $</string>
 					<key>name</key>
 					<string>meta.logcat.line.debug</string>
 				</dict>
@@ -137,7 +137,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>(?x)^ (?:\s*(\d+:)\s*)? ([\d-]+)\s+([\d:.]+)\s+ (\d+)\s+(\d+)\s+ ([EF])\s+(.*?):\s+ (.*) $</string>
+					<string>(?x)^ (?:\s*(\d+:)\s*)? ([\d-]+)\s+([\d:.]+)\s+ (\d+)[-\s]+(\d+)\S*\s+ ([EF])[/\s]+(.*?):\s+ (.*) $</string>
 					<key>name</key>
 					<string>meta.logcat.line.error</string>
 				</dict>
@@ -192,7 +192,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>(?x)^ (?:\s*(\d+:)\s*)? ([\d-]+)\s+([\d:.]+)\s+ (\d+)\s+(\d+)\s+ ([I])\s+(.*?):\s+ (.*) $</string>
+					<string>(?x)^ (?:\s*(\d+:)\s*)? ([\d-]+)\s+([\d:.]+)\s+ (\d+)[-\s]+(\d+)\S*\s+ ([I])[/\s]+(.*?):\s+ (.*) $</string>
 					<key>name</key>
 					<string>meta.logcat.line.info</string>
 				</dict>
@@ -247,7 +247,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>(?x)^ (?:\s*(\d+:)\s*)? ([\d-]+)\s+([\d:.]+)\s+ (\d+)\s+(\d+)\s+ ([V])\s+(.*?):\s+ (.*) $</string>
+					<string>(?x)^ (?:\s*(\d+:)\s*)? ([\d-]+)\s+([\d:.]+)\s+ (\d+)[-\s]+(\d+)\S*\s+ ([V])[/\s]+(.*?):\s+ (.*) $</string>
 					<key>name</key>
 					<string>meta.logcat.line.verbose</string>
 				</dict>
@@ -302,7 +302,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>(?x)^ (?:\s*(\d+:)\s*)? ([\d-]+)\s+([\d:.]+)\s+ (\d+)\s+(\d+)\s+ ([W])\s+(.*?):\s+ (.*) $</string>
+					<string>(?x)^ (?:\s*(\d+:)\s*)? ([\d-]+)\s+([\d:.]+)\s+ (\d+)[-\s]+(\d+)\S*\s+ ([W])[/\s]+(.*?):\s+ (.*) $</string>
 					<key>name</key>
 					<string>meta.logcat.line.warn</string>
 				</dict>
