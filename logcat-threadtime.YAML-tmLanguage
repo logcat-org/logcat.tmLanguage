@@ -12,8 +12,8 @@ firstLineMatch: -* beginning of /dev/log/.*
 # match: '(?x)^
 #       (?:\s*(\d+:)\s*)?         # (optional) line number
 #       ([\d-]+)\s+([\d:.]+)\s+   # date, time
-#       (\d+)\s+(\d+)\s+          # pid, tid
-#       ([VDIWEF])\s+(.*?):\s+    # log type, log tag
+#       (\d+)[-\s]+(\d+)\S*\s+    # pid, tid, package(optional)
+#       ([VDIWEF])[/\s]+(.*?):\s+ # log type, log tag
 #       (.*)                      # log message
 #       $'
 # captures:
@@ -41,8 +41,8 @@ repository:
       match: '(?x)^
             (?:\s*(\d+:)\s*)?
             ([\d-]+)\s+([\d:.]+)\s+
-            (\d+)\s+(\d+)\s+
-            ([V])\s+(.*?):\s+
+            (\d+)[-\s]+(\d+)\S*\s+
+            ([V])[/\s]+(.*?):\s+
             (.*)
             $'
       captures:
@@ -61,8 +61,8 @@ repository:
       match: '(?x)^
             (?:\s*(\d+:)\s*)?
             ([\d-]+)\s+([\d:.]+)\s+
-            (\d+)\s+(\d+)\s+
-            ([D])\s+(.*?):\s+
+            (\d+)[-\s]+(\d+)\S*\s+
+            ([D])[/\s]+(.*?):\s+
             (.*)
             $'
       captures:
@@ -81,8 +81,8 @@ repository:
       match: '(?x)^
             (?:\s*(\d+:)\s*)?
             ([\d-]+)\s+([\d:.]+)\s+
-            (\d+)\s+(\d+)\s+
-            ([I])\s+(.*?):\s+
+            (\d+)[-\s]+(\d+)\S*\s+
+            ([I])[/\s]+(.*?):\s+
             (.*)
             $'
       captures:
@@ -101,8 +101,8 @@ repository:
       match: '(?x)^
             (?:\s*(\d+:)\s*)?
             ([\d-]+)\s+([\d:.]+)\s+
-            (\d+)\s+(\d+)\s+
-            ([W])\s+(.*?):\s+
+            (\d+)[-\s]+(\d+)\S*\s+
+            ([W])[/\s]+(.*?):\s+
             (.*)
             $'
       captures:
@@ -121,8 +121,8 @@ repository:
       match: '(?x)^
             (?:\s*(\d+:)\s*)?
             ([\d-]+)\s+([\d:.]+)\s+
-            (\d+)\s+(\d+)\s+
-            ([EF])\s+(.*?):\s+
+            (\d+)[-\s]+(\d+)\S*\s+
+            ([EF])[/\s]+(.*?):\s+
             (.*)
             $'
       captures:
